@@ -1,0 +1,62 @@
+
+@media only screen and (min-width:320px){
+    .landing{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        display:grid;
+        place-items:center;
+        height:100vh;
+        width:100%;
+        background-color: #8A4FFF;
+    }
+
+    .land-text-container{
+        display:flex;
+        flex-direction: column;
+        height:50vh;
+        width:80%;
+    }
+
+    .heading-text{
+        font-family: "Poppins", sans-serif;
+        display:block;
+        width:100%;
+        text-align:center;
+        font-size:50px;
+        font-weight:600;
+        color:#EFFFFA;
+    }
+
+    .sub-heading-text{
+        font-family: "Poppins", sans-serif;
+        display:block;
+        width:100%;
+        text-align:center;
+        font-size:25px;
+        font-weight:600;
+        color:#EFFFFA;
+    }
+
+    .button-container{
+        width:100%;
+        display:grid;
+        place-items:center;
+        margin-top:60px;
+    }
+
+    .primary-button{
+        padding:10px;
+        margin:0;
+        text-align:center;
+        font-family: "Poppins", sans-serif;
+        font-size:20px;
+        font-weight:600;
+        height:30px;
+        width:150px;
+        background-color:#C3BEF7;
+        color:#000;
+        text-decoration:none;
+        border-radius:10px;
+    }
+}

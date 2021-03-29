@@ -1,0 +1,51 @@
+@media only screen and (min-width:320px){
+    .application-page{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        display:grid;
+        place-items:center;
+        height:100vh;
+        width:100%;
+        background-color: #8A4FFF;
+    }
+
+    .form-container{
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+        height:80vh;
+        width:90%;
+    }
+
+    .form-row{
+        width:100%;
+        height:auto;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .form-label{
+        font-family: "Poppins", sans-serif;
+        display:block;
+        width:100%;
+        text-align:left;
+        font-size:15px;
+        font-weight:400;
+        color:#000;
+    }
+
+    .form-input-field{
+        width:98%;
+        background-color:#E5ECF4;
+        border-radius:5px;
+        height:30px;
+        border:none;
+    }
+    .submit-button-container{
+        width:100%;
+        display:grid;
+        place-items:center;
+        margin-top:30px;
+    }
+}
