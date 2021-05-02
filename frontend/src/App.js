@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import Landing from './pages/landing/landing';
 import ApplicationForm from './pages/application-page/application';
+import PassPage from './pages/pass-page/pass';
 
 
 
@@ -20,6 +21,9 @@ function App() {
   const [section, setSection] = useState('');
   const [area, setArea] = useState('');
   const [routeNo, setRouteNo] = useState('');
+  const [uniqueID, setUniqueID] = useState('');
+
+
 
   return (
     <>
@@ -33,6 +37,7 @@ function App() {
               branch={branch}
               section={section}
               area={area}
+              uniqueID={uniqueID}
               setName={setName}
               setEmail={setEmail}
               setRollNo={setRollNo}
@@ -40,9 +45,29 @@ function App() {
               setSection={setSection}
               setArea={setArea}
               setRouteNo={setRouteNo}
+              setUniqueID={setUniqueID}
             />
           </Route>
-          <Route absolute path='/'>
+          <Route path='/pass'
+            name={name}
+            email={email}
+            rollNo={rollNo}
+            branch={branch}
+            section={section}
+            area={area}
+            uniqueID={uniqueID}
+            setName={setName}
+            setEmail={setEmail}
+            setRollNo={setRollNo}
+            setBranch={setBranch}
+            setSection={setSection}
+            setArea={setArea}
+            setRouteNo={setRouteNo}
+            setUniqueID={setUniqueID}
+          >
+            <PassPage />
+          </Route>
+          <Route exact path='/'>
             <Landing />
           </Route>
         </Switch>
