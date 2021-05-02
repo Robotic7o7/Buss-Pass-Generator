@@ -15,7 +15,7 @@ function PassPage(props) {
 
     useEffect(() => {
         console.log(localStorage.getItem("UID"));
-        fetch(`https://rohanchristopher.tech/api/buspass/${localStorage.getItem("UID")}`, {
+        fetch(`https://rohanchristopher.tech/api/buspass/students/${localStorage.getItem("UID")}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
