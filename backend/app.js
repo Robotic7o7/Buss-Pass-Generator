@@ -16,7 +16,7 @@ var mongooseOptions = {
 };
 
 mongoose.connect(
-    "mongodb+srv://robotic707:hellorohan@cluster0.mjrzp.mongodb.net/BussPassData?retryWrites=true&w=majority",
+    "mongodb+srv://robotic7o7:86j8yfu6c9@regstrationtest.0tfcv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     mongooseOptions
 );
 

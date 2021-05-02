@@ -28,6 +28,16 @@ router.get("/:id", async function (req, res) {
     }
 });
 
+//check if ID is vald
+router.get("/check/:id", async function (req, res) {
+    try {
+        const item = await Student.findById(req.params.id);
+        res.status(200).json({ message: "ID found, bus pass ACTIVE", data: item });
+    } catch (err) {
+        res.status(500).json({ message: "ID not found, bus pass INACTIVE" });
+    }
+});
+
 //new Menu Item
 router.post("/new", async function (req, res) {
 
