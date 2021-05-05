@@ -5,6 +5,7 @@ var logger = require('morgan');
 const mongoose = require("mongoose");
 const cors = require("cors");
 var dotenv = require("dotenv");
+var hot = require('hotlogjs');
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ var usersRouter = require('./routes/users');
 var studentsRouter = require('./routes/students');
 var busRoutesRouter = require('./routes/busRoutes');
 var busStopsRouter = require('./routes/busStops');
+var testRouter = require('./routes/test-route');
 
 var app = express();
 
@@ -46,5 +48,6 @@ app.use('/users', usersRouter);
 app.use('/students', studentsRouter);
 app.use('/bus-routes', busRoutesRouter);
 app.use('/bus-stops', busStopsRouter);
+app.use('/assign-route', testRouter);
 
 module.exports = app;

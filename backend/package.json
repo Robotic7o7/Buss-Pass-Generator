@@ -12,6 +12,7 @@
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "fs-extra": "^9.1.0",
+    "hotlogjs": "^1.0.8",
     "mongoose": "^5.12.2",
     "morgan": "~1.9.1",
     "puppeteer": "^8.0.0"

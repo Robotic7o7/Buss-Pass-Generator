@@ -1,0 +1,34 @@
+.information-page{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    height:100vh;
+    width:100%;
+}
+
+.assigned-container{
+    margin-top:50px;
+    width:80%;
+    height:110px;
+    background-color:#ccc;
+    box-sizing:border-box;
+    padding:10px;
+    border-radius:6px;
+}
+
+.info-page-table{
+    margin-top:50px;
+}
+
+.info-page-button-container{
+    margin-top:30px;
+    width:95%;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:space-around;
+}
+
+
+

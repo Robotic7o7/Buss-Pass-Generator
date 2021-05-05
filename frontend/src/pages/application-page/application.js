@@ -16,7 +16,7 @@ function ApplicationForm(props) {
 
 
 
-    function submit() {
+    /*function submit() {
         // console.log(props.name)
         // console.log(props.email)
         // console.log(props.rollNo)
@@ -56,7 +56,7 @@ function ApplicationForm(props) {
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }
+    }*/
 
     return (
         <div className="application-page">
@@ -87,12 +87,12 @@ function ApplicationForm(props) {
                     <input className="form-input-field" onChange={e => { e.preventDefault(); props.setArea(e.target.value) }}></input>
                 </div>
                 <div className="submit-button-container">
-                    <Link to="" className="primary-button" onClick={submit}>APPLY</Link>
+                    <Link to="/confirm" className="primary-button">APPLY</Link>
                 </div>
             </div>
-            <div className="redirect-button-container" id="redirect-container">
+            {/* <div className="redirect-button-container" id="redirect-container">
                 <Link to="/pass" className="primary-button">Generate Pass</Link>
-            </div>
+            </div> */}
         </div>
 
     );

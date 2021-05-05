@@ -10,6 +10,8 @@ import {
 import Landing from './pages/landing/landing';
 import ApplicationForm from './pages/application-page/application';
 import PassPage from './pages/pass-page/pass';
+import InformationPage from './pages/info-display-page/info-display';
+import SuccessScreen from './pages/success-page/success';
 
 
 
@@ -49,23 +51,43 @@ function App() {
             />
           </Route>
           <Route path='/pass'
-            name={name}
-            email={email}
-            rollNo={rollNo}
-            branch={branch}
-            section={section}
-            area={area}
-            uniqueID={uniqueID}
-            setName={setName}
-            setEmail={setEmail}
-            setRollNo={setRollNo}
-            setBranch={setBranch}
-            setSection={setSection}
-            setArea={setArea}
-            setRouteNo={setRouteNo}
-            setUniqueID={setUniqueID}
+
           >
-            <PassPage />
+            <PassPage name={name}
+              email={email}
+              rollNo={rollNo}
+              branch={branch}
+              section={section}
+              area={area}
+              uniqueID={uniqueID}
+              setName={setName}
+              setEmail={setEmail}
+              setRollNo={setRollNo}
+              setBranch={setBranch}
+              setSection={setSection}
+              setArea={setArea}
+              setRouteNo={setRouteNo}
+              setUniqueID={setUniqueID} />
+          </Route>
+          <Route path='/confirm'>
+            <InformationPage name={name}
+              email={email}
+              rollNo={rollNo}
+              branch={branch}
+              section={section}
+              area={area}
+              uniqueID={uniqueID}
+              setName={setName}
+              setEmail={setEmail}
+              setRollNo={setRollNo}
+              setBranch={setBranch}
+              setSection={setSection}
+              setArea={setArea}
+              setRouteNo={setRouteNo}
+              setUniqueID={setUniqueID} />
+          </Route>
+          <Route path='/success'>
+            <SuccessScreen />
           </Route>
           <Route exact path='/'>
             <Landing />
