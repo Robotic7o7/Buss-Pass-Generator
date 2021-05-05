@@ -71,7 +71,7 @@ function InformationPage(props) {
                 </div>
             </div>
             <div className="info-page-button-container">
-                <Link to="" className="primary-button">Confirm</Link>
+                <Link to="/success" className="primary-button">Confirm</Link>
                 <Link to="/confirm" className="primary-button">Modify</Link>
             </div>
         </div>)
