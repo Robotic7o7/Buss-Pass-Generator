@@ -18,7 +18,7 @@ function InformationPage(props) {
 
     useEffect(() => {
         console.log(localStorage.getItem("UID"));
-        fetch("http://143.110.254.198:3003/assign-route/test", {
+        fetch(`http://143.110.254.198/assign-route/${props.area}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +28,9 @@ function InformationPage(props) {
             .then(data => {
                 if (data.message != "failed") {
                     console.log(data);
-                    localStorage.setItem("boardingPoint", data.boardingPoint)
+                    localStorage.setItem("boardingPoint", data.designatedStop)
+                    localStorage.setItem("busRouteID", data.routeNo);
+                    busRouteFind()
                     setRouteDisplayData(data)
                 }
                 else {
@@ -39,6 +41,17 @@ function InformationPage(props) {
                 console.error('Error:', error);
             });
     }, [])
+
+    function busRouteFind() {
+        fetch(`http://143.110.254.198/bus-routes/${localStorage.getItem("busRouteID")}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem("routeNo", data.routeNo)
+                localStorage.setItem("busIncharge", data.inchargeName)
+                localStorage.setItem("inchargeNumber", data.inchargeNumber)
+            });
+    }
 
 
 
@@ -63,8 +76,8 @@ function InformationPage(props) {
                 rollnumber: props.rollNo,
                 branch: props.branch,
                 section: props.section,
-                busStop: props.boardingPoint,
-                routeNo: "608e550e821faa0908c360ad",
+                busStop: localStorage.getItem("bordingPoint"),
+                routeNo: localStorage.getItem("busRouteID"),
                 status: "ACTIVE"
             }),
         })
@@ -87,7 +100,7 @@ function InformationPage(props) {
     }
 
     const paymentHandler = async (e) => {
-        const API_URL = 'http://localhost:3003/'
+        const API_URL = 'http://143.110.254.198/'
         e.preventDefault();
         const orderUrl = `${API_URL}payments/pay`;
         const response = await Axios.post(orderUrl, {
@@ -131,9 +144,9 @@ function InformationPage(props) {
                 <label><b>You have been assigned</b></label>
                 <br />
                 <br />
-                <label><b>Route Number:</b>&nbsp;{routeDisplayData.routeNo} </label>
+                <label><b>Route Number:</b>&nbsp;{localStorage.getItem("routeNo")} </label>
                 <br />
-                <label><b>Boarding Point:</b>&nbsp;{routeDisplayData.boardingPoint} </label>
+                <label><b>Boarding Point:</b>&nbsp;{localStorage.getItem("boardingPoint")} </label>
             </div>
             <div className="pass-page-details-container info-page-table">
                 <div className="pass-page-detaile-container-left">
@@ -149,13 +162,13 @@ function InformationPage(props) {
                     <label className="pass-page-detail-value">{props.rollNo}</label>
                     <label className="pass-page-detail-value">{props.branch}</label>
                     <label className="pass-page-detail-value">{props.section}</label>
-                    <label className="pass-page-detail-value">{routeDisplayData.routeNo}</label>
-                    <label className="pass-page-detail-value">{routeDisplayData.boardingPoint}</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("routeNo")}</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("boardingPoint")}</label>
                 </div>
             </div>
             <div className="info-page-button-container">
                 <button onClick={saveBusPass} className="button-2">Confirm</button>
-                <Link to="/confirm" className="primary-button">Modify</Link>
+                <Link to="/modify" className="primary-button">Modify</Link>
             </div>
         </div>)
     }

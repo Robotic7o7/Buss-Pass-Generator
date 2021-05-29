@@ -37,30 +37,6 @@ function PassPage(props) {
             });
     }, [])
 
-    //FETCH BUS ROUTE INFO FROM ID
-
-    // useEffect(() => {
-    //     console.log(localStorage.getItem("UID"));
-    //     fetch(`http://localhost:3003/bus-routes/${routeID}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.message != "failed") {
-    //                 console.log(data);
-    //                 setRoute(data.routeNo);
-    //             }
-    //             else {
-    //                 alert("Server Error")
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error:', error);
-    //         });
-    // }, [])
 
     var url = `http://143.110.254.198:3003/students/check/${localStorage.getItem("UID")}`
 
@@ -89,9 +65,9 @@ function PassPage(props) {
                     <label className="pass-page-detail-value">{studentData.rollnumber}</label>
                     <label className="pass-page-detail-value">{studentData.branch}</label>
                     <label className="pass-page-detail-value">{studentData.section}</label>
-                    <label className="pass-page-detail-value">test</label>
-                    <label className="pass-page-detail-value">test</label>
-                    <label className="pass-page-detail-value">test</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("routeNo")}</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("busIncharge")}</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("inchargeNumber")}</label>
                     <label className="pass-page-detail-value">{localStorage.getItem("boardingPoint")}</label>
                 </div>
             </div>
