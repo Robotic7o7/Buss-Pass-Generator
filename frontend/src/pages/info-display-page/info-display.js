@@ -14,6 +14,7 @@ import Axios from 'axios';
 function InformationPage(props) {
 
     const [routeDisplayData, setRouteDisplayData] = useState('');
+    const [testData, setTestData] = useState('');
     const history = useHistory()
 
     useEffect(() => {
@@ -50,6 +51,7 @@ function InformationPage(props) {
                 localStorage.setItem("routeNo", data.routeNo)
                 localStorage.setItem("busIncharge", data.inchargeName)
                 localStorage.setItem("inchargeNumber", data.inchargeNumber)
+                setTestData(data)
             });
     }
 
@@ -76,7 +78,7 @@ function InformationPage(props) {
                 rollnumber: props.rollNo,
                 branch: props.branch,
                 section: props.section,
-                busStop: localStorage.getItem("bordingPoint"),
+                busStop: localStorage.getItem("boardingPoint"),
                 routeNo: localStorage.getItem("busRouteID"),
                 status: "ACTIVE"
             }),
@@ -134,7 +136,7 @@ function InformationPage(props) {
     };
 
 
-    if (!routeDisplayData) {
+    if (!testData) {
         return (<div>Loading......</div>)
     }
     else {
