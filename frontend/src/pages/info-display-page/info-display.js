@@ -18,7 +18,7 @@ function InformationPage(props) {
 
     useEffect(() => {
         console.log(localStorage.getItem("UID"));
-        fetch(`http://143.110.254.198/assign-route/${props.area}`, {
+        fetch(`http://143.110.254.198:3003/assign-route/${props.area}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function InformationPage(props) {
     }, [])
 
     function busRouteFind() {
-        fetch(`http://143.110.254.198/bus-routes/${localStorage.getItem("busRouteID")}`)
+        fetch(`http://143.110.254.198:3003/bus-routes/${localStorage.getItem("busRouteID")}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -100,7 +100,7 @@ function InformationPage(props) {
     }
 
     const paymentHandler = async (e) => {
-        const API_URL = 'http://143.110.254.198/'
+        const API_URL = 'http://143.110.254.198:3003/'
         e.preventDefault();
         const orderUrl = `${API_URL}payments/pay`;
         const response = await Axios.post(orderUrl, {
