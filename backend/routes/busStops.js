@@ -30,7 +30,17 @@ router.get("/:id", async function (req, res) {
 //get stop by routeNo
 router.get("/:routeNo", async function (req, res) {
     try {
-        const item = await BusStop.find(req.params.routeNo);
+        const item = await BusStop.findOne({ area: req.params.area });
+        res.status(200).json(item);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+});
+
+//get stop by routeNo
+router.get("/:area", async function (req, res) {
+    try {
+        const item = await BusStop.find(req.params.area);
         res.status(200).json(item);
     } catch (err) {
         res.status(500).json({ error: err });

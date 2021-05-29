@@ -15,49 +15,6 @@ function ApplicationForm(props) {
     const uniqueid = React.createContext("0");
 
 
-
-    /*function submit() {
-        // console.log(props.name)
-        // console.log(props.email)
-        // console.log(props.rollNo)
-        // console.log(props.branch)
-        // console.log(props.section)
-        // console.log(props.area)
-
-        fetch('https://rohanchristopher.tech/api/buspass/students/new', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: props.name,
-                emailID: props.email,
-                rollnumber: props.rollNo,
-                branch: props.branch,
-                section: props.section,
-                busStop: "Malkajgiri",
-                routeNo: "608e550e821faa0908c360ad",
-                status: "ACTIVE"
-            }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message != "failed") {
-                    console.log("ID Generated " + data._id);
-                    props.setUniqueID(data._id);
-                    console.log(props.uniqueID);
-                    localStorage.setItem("UID", data._id);
-                    history.push('/pass');
-                }
-                else {
-                    alert("Server Error")
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }*/
-
     return (
         <div className="application-page">
             <label className="sub-heading-text">APPLICATION FORM</label>

@@ -12,6 +12,7 @@ import ApplicationForm from './pages/application-page/application';
 import PassPage from './pages/pass-page/pass';
 import InformationPage from './pages/info-display-page/info-display';
 import SuccessScreen from './pages/success-page/success';
+import UpdateDetails from './pages/update-details/update';
 
 
 
@@ -24,7 +25,7 @@ function App() {
   const [area, setArea] = useState('');
   const [routeNo, setRouteNo] = useState('');
   const [uniqueID, setUniqueID] = useState('');
-
+  const [boardingPoint, setBoardingPoint] = useState('')
 
 
   return (
@@ -40,6 +41,8 @@ function App() {
               section={section}
               area={area}
               uniqueID={uniqueID}
+              boardingPoint={boardingPoint}
+              setBoardingPoint={setBoardingPoint}
               setName={setName}
               setEmail={setEmail}
               setRollNo={setRollNo}
@@ -60,6 +63,8 @@ function App() {
               section={section}
               area={area}
               uniqueID={uniqueID}
+              boardingPoint={boardingPoint}
+              setBoardingPoint={setBoardingPoint}
               setName={setName}
               setEmail={setEmail}
               setRollNo={setRollNo}
@@ -70,7 +75,8 @@ function App() {
               setUniqueID={setUniqueID} />
           </Route>
           <Route path='/confirm'>
-            <InformationPage name={name}
+            <InformationPage
+              name={name}
               email={email}
               rollNo={rollNo}
               branch={branch}
@@ -85,6 +91,27 @@ function App() {
               setArea={setArea}
               setRouteNo={setRouteNo}
               setUniqueID={setUniqueID} />
+          </Route>
+          <Route path='/update'>
+            <UpdateDetails
+              name={name}
+              email={email}
+              rollNo={rollNo}
+              branch={branch}
+              section={section}
+              area={area}
+              uniqueID={uniqueID}
+              boardingPoint={boardingPoint}
+              setBoardingPoint={setBoardingPoint}
+              setName={setName}
+              setEmail={setEmail}
+              setRollNo={setRollNo}
+              setBranch={setBranch}
+              setSection={setSection}
+              setArea={setArea}
+              setRouteNo={setRouteNo}
+              setUniqueID={setUniqueID}
+            />
           </Route>
           <Route path='/success'>
             <SuccessScreen />

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 var dotenv = require("dotenv");
 var hot = require('hotlogjs');
+var bodyParser = require('body-parser');
 
 dotenv.config();
 
@@ -33,15 +34,21 @@ var studentsRouter = require('./routes/students');
 var busRoutesRouter = require('./routes/busRoutes');
 var busStopsRouter = require('./routes/busStops');
 var testRouter = require('./routes/test-route');
+var qrgenRouter = require('./routes/qrgen');
+var paymentsRouter = require('./routes/payments');
 
 var app = express();
 
 app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -49,5 +56,7 @@ app.use('/students', studentsRouter);
 app.use('/bus-routes', busRoutesRouter);
 app.use('/bus-stops', busStopsRouter);
 app.use('/assign-route', testRouter);
+app.use('/qrgen', qrgenRouter);
+app.use('/payments', paymentsRouter);
 
 module.exports = app;

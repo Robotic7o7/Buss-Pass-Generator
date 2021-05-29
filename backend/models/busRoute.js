@@ -18,6 +18,10 @@ const busRouteSchema = mongoose.Schema({
         type: String
     },
 
+    availableSeats: {
+        type: String
+    },
+
     status: {
         enum: ["ACTIVE", "INACTIVE", null]
     }

@@ -36,6 +36,7 @@ router.post("/new", async function (req, res) {
             inchargeName: req.body.inchargeName,
             inchargeNumber: req.body.inchargeNumber,
             startPoint: req.body.startPoint,
+            availableSeats: req.body.availableSeats,
             status: req.body.status
         });
 
@@ -96,6 +97,28 @@ router.patch("/:id/update_incharge", async function (req, res) {
         res.status(500).json({ error: err });
     }
 });
+
+
+//update a bus Route Seats
+router.patch("/:id/update_seats", async function (req, res) {
+    try {
+        updatedItem = await BusRoute.updateOne(
+            { _id: req.params.id },
+            {
+                $set: {
+                    availableSeats: req.body.availableSeats
+                }
+            },
+        );
+
+        res
+            .status(200)
+            .json({ message: "success", additional_info: "Seats Updated" });
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+});
+
 
 
 //update status of a Route

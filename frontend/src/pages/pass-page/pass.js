@@ -15,7 +15,7 @@ function PassPage(props) {
 
     useEffect(() => {
         console.log(localStorage.getItem("UID"));
-        fetch(`https://rohanchristopher.tech/api/buspass/students/${localStorage.getItem("UID")}`, {
+        fetch(`http://143.110.254.198:3003/students/${localStorage.getItem("UID")}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ function PassPage(props) {
     //         });
     // }, [])
 
-    var url = `https://rohanchristopher.tech/api/buspass/students/check/${localStorage.getItem("UID")}`
+    var url = `http://143.110.254.198:3003/students/check/${localStorage.getItem("UID")}`
 
     console.log(url)
 
@@ -92,7 +92,7 @@ function PassPage(props) {
                     <label className="pass-page-detail-value">test</label>
                     <label className="pass-page-detail-value">test</label>
                     <label className="pass-page-detail-value">test</label>
-                    <label className="pass-page-detail-value">{studentData.busStop}</label>
+                    <label className="pass-page-detail-value">{localStorage.getItem("boardingPoint")}</label>
                 </div>
             </div>
             <div className="pass-page-download-button-container">
